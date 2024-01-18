@@ -139,10 +139,23 @@ main {
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
-    display: flex;
     justify-content: center;
     align-items: center;
     padding: .5rem;
+}
+
+h1 {
+    color: bisque;
+}
+
+main table {
+    background-color: rgba(255, 228, 196, 0.5);
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+main img {
+    max-width: 100px;
 }
 
 /* Lorem Ipsum Dolor Sit Amet -- MEDIA QUERRIES -- temA tiS roloD muspI meroL */

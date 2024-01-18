@@ -1,14 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!
+{% block title %}
+
+	<h1>Parcourez notre collection de Vinyls</h1>
+
 {% endblock %}
 
 {% block body %}
 
-	<div id="homePage">
+	{% for vinyl in vinyls %}
 
-		<p>Bienvenue sur VinylShop !</p>
+		<figure>
 
-	</div>
+			<figcaption>
+
+				<h2>{{vinyl.titre}}, par
+					{{vinyl.artiste}}</h2>
+
+				<img src="{{ asset('./assets/css/img/{{vinyl.image}}')}}">
+
+				<p>Artiste :
+				</p>
+
+				<p>Album :
+					{{vinyl.album}}</p>
+
+				<p>Année :
+					{{vinyl.annee}}</p>
+
+			</figcaption>
+
+		</figure>
+
+	{% endfor %}
 
 {% endblock %}
