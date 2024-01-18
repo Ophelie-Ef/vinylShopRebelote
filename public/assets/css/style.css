@@ -1,0 +1,191 @@
+/* Lorem Ipsum Dolor Sit Amet -- RESET -- temA tiS roloD muspI meroL */
+/* Lorem Ipsum Dolor Sit Amet -- RESET -- temA tiS roloD muspI meroL */
+/* Lorem Ipsum Dolor Sit Amet -- RESET -- temA tiS roloD muspI meroL */
+/* Lorem Ipsum Dolor Sit Amet -- RESET -- temA tiS roloD muspI meroL */
+/* Lorem Ipsum Dolor Sit Amet -- RESET -- temA tiS roloD muspI meroL */
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+img,
+input {
+    width: 100%;
+}
+
+/* Lorem Ipsum Dolor Sit Amet -- HEADER NAV -- temA tiS roloD muspI meroL */
+/* Lorem Ipsum Dolor Sit Amet -- HEADER NAV -- temA tiS roloD muspI meroL */
+/* Lorem Ipsum Dolor Sit Amet -- HEADER NAV -- temA tiS roloD muspI meroL */
+/* Lorem Ipsum Dolor Sit Amet -- HEADER NAV -- temA tiS roloD muspI meroL */
+/* Lorem Ipsum Dolor Sit Amet -- HEADER NAV -- temA tiS roloD muspI meroL */
+
+header {
+    background-color: #0A0907;
+    color: blanchedalmond;
+}
+
+#imgLogo {
+    padding: .5rem;
+    width: 10rem;
+}
+
+#burger, #logo {
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#headerNav {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+#navMenu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 50px;
+    justify-content: space-between;
+    list-style-type: none;
+    left: 0;
+    background-color: #0A0907;
+    width: 100%;
+    transition: .6s all;
+    padding: 1rem 0;
+}
+
+#logger {
+    padding: .5rem .5rem 1rem .5rem;
+    position: absolute;
+    left: 0;
+    background-color: #0A0907;
+    width: 100%;
+    top: 12rem;
+    transition: .6s all;
+}
+
+.logBtn, #userEmail{
+    padding: .5rem;
+    margin: 0 .5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #334353;
+    border-radius: 1rem;
+    text-decoration: none;
+}
+
+.logBtn{
+    background-color: #334353;
+    color: blanchedalmond;
+}
+
+.logBtn:hover{
+    background-color: dimgrey;
+}
+
+#userEmail{
+    background-color: #04294f;
+}
+
+#navMenu li {
+    position: relative;
+    padding: .5rem;
+    border-radius: 1rem;
+}
+#navMenu li:hover{
+    background-color: darkslategrey;
+}
+
+
+.subMenu {
+    position: absolute;
+    top: 3rem;
+    padding: 0.25rem;
+    overflow: hidden;
+    transition: .6s all;
+    background-color: #0A0907;
+}
+
+.hideSubMenu {
+    max-height: 0;
+}
+
+.showSubMenu {
+    left: 5rem;
+    max-height: 500px;
+}
+
+.rightSlide {
+    transform: translateX(0);
+}
+
+.leftSlide {
+    transform: translateX(-100%);
+}
+
+/* Lorem Ipsum Dolor Sit Amet -- MAIN -- temA tiS roloD muspI meroL */
+/* Lorem Ipsum Dolor Sit Amet -- MAIN -- temA tiS roloD muspI meroL */
+/* Lorem Ipsum Dolor Sit Amet -- MAIN -- temA tiS roloD muspI meroL */
+/* Lorem Ipsum Dolor Sit Amet -- MAIN -- temA tiS roloD muspI meroL */
+/* Lorem Ipsum Dolor Sit Amet -- MAIN -- temA tiS roloD muspI meroL */
+
+main {
+    background-image: url(../img/vinylMobile.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem;
+}
+
+/* Lorem Ipsum Dolor Sit Amet -- MEDIA QUERRIES -- temA tiS roloD muspI meroL */
+/* Lorem Ipsum Dolor Sit Amet -- MEDIA QUERRIES -- temA tiS roloD muspI meroL */
+/* Lorem Ipsum Dolor Sit Amet -- MEDIA QUERRIES -- temA tiS roloD muspI meroL */
+/* Lorem Ipsum Dolor Sit Amet -- MEDIA QUERRIES -- temA tiS roloD muspI meroL */
+/* Lorem Ipsum Dolor Sit Amet -- MEDIA QUERRIES -- temA tiS roloD muspI meroL */
+
+@media screen and (min-width:576px) {
+
+    /* Lorem Ipsum Dolor Sit Amet -- HEADER NAV -- temA tiS roloD muspI meroL */
+
+    #navMenu {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        width: fit-content;
+    }
+
+    #logger {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: static;
+        width: fit-content;
+    }
+
+    #burger {
+        display: none;
+    }
+
+    .submenu {
+        top: 3rem;
+    }
+
+    .showSubMenu {
+        top: 3rem;
+    }
+
+    /* Lorem Ipsum Dolor Sit Amet -- MAIN -- temA tiS roloD muspI meroL */
+
+    main {
+        background-image: url(../img/vinylDesktop.jpg);
+        padding: 2.5rem;
+    }
+}

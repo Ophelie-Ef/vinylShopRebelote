@@ -1,17 +1,72 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
 
-        {% block javascripts %}
-{% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+		{% block stylesheets %}
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+			<link rel="stylesheet" href="{{asset('./assets/css/style.css')}}">
+		{% endblock %}
+		{% block javascripts %}
+			<script type="module" src="{{asset('./assets/js/script.js')}}"></script>
+		{% endblock %}
+	</head>
+
+	<body>
+
+		<header>
+
+			<nav id="headerNav">
+
+				<div id="logo">
+
+					<svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" viewbox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#d2d5d5" d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256-96a96 96 0 1 1 0 192 96 96 0 1 1 0-192zm0 224a128 128 0 1 0 0-256 128 128 0 1 0 0 256zm0-96a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>
+
+				</div>
+
+				<ul id="navMenu" class="leftSlide"></ul>
+
+				{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+					<div id="logger" class="leftSlide">
+
+						<span id="userEmail">{{app.user.email}}</span>
+						<a href="{{path('app_logout')}}" id="logOut" class="logBtn">Log Out</a>
+
+				</div>
+
+				{% else %}
+
+					<div id="logger" class="leftSlide">
+
+						<a href="{{path('app_register')}}" id="register" class="logBtn">Register</a>
+						<a href="{{path('app_login')}}" id="logIn" class="logBtn">Log In</a>
+
+					</div>
+
+				{% endif %}
+
+				<div id="burger">
+					<i id="icon" class="fa-solid fa-caret-down" style="color: #d2d5d5; font-size: 3rem;"></i>
+				</div>
+
+			</nav>
+
+		</header>
+
+		<main>
+
+			{% block body %}{% endblock %}
+
+		</main>
+
+		<footer>Provided by Footer</footer>
+
+	</body>
+
 </html>
