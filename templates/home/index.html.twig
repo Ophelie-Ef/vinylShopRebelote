@@ -2,36 +2,39 @@
 
 {% block title %}
 
-	<h1>Parcourez notre collection de Vinyls</h1>
+	Nos Vinyls
 
 {% endblock %}
 
 {% block body %}
 
-	{% for vinyl in vinyls %}
+	<h1>Parcourez notre collection de Vinyls</h1>
 
-		<figure>
+	<section id="cards">
 
-			<figcaption>
+		{% for vinyl in vinyls %}
 
-				<h2>{{vinyl.titre}}, par
-					{{vinyl.artiste}}</h2>
+			<figure>
 
-				<img src="{{ asset('assets/img/' ~ vinyl.cover) }}">
+				<figcaption>
 
-				<p>Artiste :
-				</p>
+					<h2>{{vinyl.titre}}, par
+						{{vinyl.artiste}}</h2>
 
-				<p>Album :
-					{{vinyl.album}}</p>
+					<img src="{{ asset('assets/img/' ~ vinyl.cover) }}">
 
-				<p>Année :
-					{{vinyl.annee}}</p>
+					<p>Album :
+						{{vinyl.album}}</p>
 
-			</figcaption>
+					<p>Année :
+						{{vinyl.annee}}</p>
 
-		</figure>
+				</figcaption>
 
-	{% endfor %}
+			</figure>
+
+		{% endfor %}
+
+	</section>
 
 {% endblock %}

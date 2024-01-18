@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use \Gumlet\ImageResize;
 
 #[Route('/vinyl')]
 class VinylController extends AbstractController
@@ -32,6 +33,27 @@ class VinylController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($vinyl);
             $entityManager->flush();
+            // pour utiliser le getId, mettre la creation d'image après le premier flush
+            $image = $form->get('cover')->getData();
+            if ($image) {
+                // creating img name with id
+                $imgName = $vinyl->getId() . ".jpeg";
+                $directory = str_replace('\\', '/', $this->getParameter('cover_directory')) . "/";
+                $originalName = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+                $originalName = $originalName . "." . $image->guessExtension();
+                // dd($imgName, $originalName, $directory);
+                $image->move($directory, $originalName);
+                $newImage = new ImageResize($directory . $originalName);
+                $newImage->resizeToWidth(300);
+                $newImage->save($directory . $imgName, IMAGETYPE_JPEG);
+                // OPTIONAL : create a thumbnail (=une miniature)...
+
+                // suppression
+                unlink($directory.$originalName);
+
+                $entityManager->persist($vinyl);
+                $entityManager->flush();
+            }
 
             return $this->redirectToRoute('app_vinyl_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -71,7 +93,7 @@ class VinylController extends AbstractController
     #[Route('/{id}', name: 'app_vinyl_delete', methods: ['POST'])]
     public function delete(Request $request, Vinyl $vinyl, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$vinyl->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $vinyl->getId(), $request->request->get('_token'))) {
             $entityManager->remove($vinyl);
             $entityManager->flush();
         }

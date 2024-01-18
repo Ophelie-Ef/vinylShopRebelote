@@ -137,11 +137,20 @@ main {
     background-image: url(../img/vinylMobile.jpg);
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size: cover;
-    height: 100vh;
+    height: max-content;
     justify-content: center;
     align-items: center;
     padding: .5rem;
+
+}
+
+#cards {
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 h1 {
@@ -156,6 +165,12 @@ main table {
 
 main img {
     max-width: 100px;
+}
+
+main figcaption {
+    background-color: rgba(255, 228, 196, 0.5);
+    padding: 1rem;
+    border-radius: 5px;
 }
 
 /* Lorem Ipsum Dolor Sit Amet -- MEDIA QUERRIES -- temA tiS roloD muspI meroL */
